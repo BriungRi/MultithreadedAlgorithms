@@ -13,6 +13,27 @@ public class ListUtils {
         return randomList;
     }
 
+    public static List<List<Integer>> partitionList(List<Integer> list, int numPartitions) {
+        List<List<Integer>> listOfPartitions = new ArrayList<>();
+
+        int partitionSize = list.size() / numPartitions;
+        int remainder = list.size() % numPartitions;
+
+        for(int i = 0; i < numPartitions; i++) {
+            List<Integer> partition = new ArrayList<>();
+            for(int j = 0; j < partitionSize; j++) {
+                partition.add(list.remove(list.size() - 1));
+            }
+            if(remainder > 0) {
+                partition.add(list.remove(list.size() - 1));
+                remainder--;
+            }
+            listOfPartitions.add(partition);
+        }
+
+        return listOfPartitions;
+    }
+
     private static int generateRandomInteger() {
         return new Random().nextInt();
     }
