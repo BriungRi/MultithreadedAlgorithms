@@ -33,10 +33,12 @@ public class MergeSort {
             sortedLists.add(worker.result());
         }
         List<Integer> sortedList = ListUtils.mergeSortedLists(sortedLists);
+        long endTime = System.currentTimeMillis();
 
         if(ListUtils.isSorted(sortedList)) {
-            long endTime = System.currentTimeMillis();
             System.out.printf("\nList of size %d sorted in %dms with %d thread(s)", listSize, endTime - startTime, numThreads);
+        } else {
+            System.out.println("Something went wrong while sorting");
         }
     }
 }
