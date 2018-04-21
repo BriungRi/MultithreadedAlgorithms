@@ -13,6 +13,7 @@ java Main
 ----
 
 Beta Version Requirements:
+
 a) 
 sorting package:
 In here, you will find a MergeSort class and MergeSortWorker class. The MergeSort class contains a method that will
