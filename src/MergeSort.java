@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MergeSort {
-    public static int TEST_SIZE = 9000000;
+    private static final int TEST_SIZE = 200000;
 
     public static void main(String[] args) throws InterruptedException {
         int numThreads = Integer.parseInt(args[0]);
@@ -24,12 +24,15 @@ public class MergeSort {
         for(MergeSortWorker worker : mergeSortWorkers)
             worker.join();
 
-        List<Integer> sortedList = new ArrayList<>();
-        for(MergeSortWorker worker : mergeSortWorkers)
-            sortedList.addAll(worker.result());
+        List<List<Integer>> sortedLists = new ArrayList<>();
+        for(MergeSortWorker worker : mergeSortWorkers) {
+            sortedLists.add(worker.result());
+        }
+        List<Integer> sortedList = ListUtils.mergeSortedLists(sortedLists);
 
-        long endTime = System.currentTimeMillis();
-
-        System.out.printf("\nList of size %d sorted in %dms", TEST_SIZE, endTime - startTime);
+        if(ListUtils.isSorted(sortedList)) {
+            long endTime = System.currentTimeMillis();
+            System.out.printf("\nList of size %d sorted in %dms", TEST_SIZE, endTime - startTime);
+        }
     }
 }
