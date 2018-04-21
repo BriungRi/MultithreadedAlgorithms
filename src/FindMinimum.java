@@ -32,7 +32,6 @@ public class FindMinimum {
             FindMinimumWorker findMinimumWorker = new FindMinimumWorker(partition);
             findMinimumElementsList.add(findMinimumWorker);
             findMinimumWorker.start();
-            findMinimumWorker.minVal(partition);
         }
 
         for(FindMinimumWorker findMinimumWorker : findMinimumElementsList) {
