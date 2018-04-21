@@ -34,3 +34,4 @@ you will see output to view the performance of the algorithm against variable li
 
 e)
 Brian: In this version, I mainly worked on the multithreaded MergeSort algorithm. I also wrote up some tests and documentation.
+Arbaz: In this version, I mainly worked on the multithreaded FindMinimum algorithm. I also wrote up some tests and documentation.
