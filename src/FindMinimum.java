@@ -24,7 +24,7 @@ public class FindMinimum {
     }
 
     public static void getMinimumElement(int numThreads, int listSize) {
-        List<Integer> list = ListUtils.generateRandomList(TEST_SIZE);
+        List<Integer> list = ListUtils.generateRandomList(listSize);
         List<List<Integer>> partitions = ListUtils.partitionList(list, numThreads);
         List<FindMinimumWorker> findMinimumElementsList = new ArrayList<>();
         long startTime = System.currentTimeMillis();
@@ -44,17 +44,13 @@ public class FindMinimum {
         }
 
 
-        List<List<Integer>> minLists = new ArrayList<>();
+        List<Integer> minLists = new ArrayList<>();
         for(FindMinimumWorker worker : findMinimumElementsList) {
             minLists.add(worker.result());
-
+            FindMinimum.minVal(minLists);
         }
 
         long endTime = System.currentTimeMillis();
-        System.out.printf("\nList of size %d sorted in %dms", TEST_SIZE, endTime - startTime);
-    }
-
-    public void main(String[] args) {
-
+        System.out.printf("\nList of size %d sorted in %dms", listSize, endTime - startTime);
     }
 }
