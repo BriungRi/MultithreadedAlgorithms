@@ -34,6 +34,13 @@ public class ListUtils {
         return listOfPartitions;
     }
 
+    public static boolean isMinVal(List<Integer> list) {
+        for (int i = 0; i < list.size()-1; i++) {
+
+        }
+    }
+
+
     public static List<Integer> mergeSortedLists(List<List<Integer>> sortedLists) {
         List<Integer> sortedList = new ArrayList<>();
         while(!sortedLists.isEmpty()) {
