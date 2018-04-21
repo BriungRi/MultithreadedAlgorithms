@@ -3,25 +3,12 @@ import sorting.MergeSortWorker;
 import utils.ListUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FindMinimum {
 
     public static int TEST_SIZE = 9000000;
-
-    public static int minVal(List<Integer> list) {
-        int start = 0;
-        int end = list.size() - 1;
-        int min = Integer.MAX_VALUE;
-        for (int i = start; i < list.size(); i++) {
-            int val = list.get(i);
-            if (val < min) {
-                min = val;
-            }
-            return min;
-        }
-        return 0;
-    }
 
     public static void getMinimumElement(int numThreads, int listSize) {
         List<Integer> list = ListUtils.generateRandomList(listSize);
@@ -47,7 +34,7 @@ public class FindMinimum {
         List<Integer> minLists = new ArrayList<>();
         for(FindMinimumWorker worker : findMinimumElementsList) {
             minLists.add(worker.result());
-            FindMinimum.minVal(minLists);
+            Collections.min(minLists);
         }
 
         long endTime = System.currentTimeMillis();
