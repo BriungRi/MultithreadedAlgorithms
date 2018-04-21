@@ -3,12 +3,12 @@
 ----
 
 Getting started:
-`
+```
 git clone https://github.com/BriungRi/MultithreadedAlgorithms.git
 cd MultithreadedAlgorithms/src/
 javac Main.java
 java Main
-`
+````
 
 ----
 
