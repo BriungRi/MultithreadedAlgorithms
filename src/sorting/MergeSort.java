@@ -1,6 +1,5 @@
 package sorting;
 
-import sorting.MergeSortWorker;
 import utils.ListUtils;
 
 import java.util.ArrayList;

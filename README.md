@@ -8,7 +8,7 @@ git clone https://github.com/BriungRi/MultithreadedAlgorithms.git
 cd MultithreadedAlgorithms/src/
 javac Main.java
 java Main
-````
+```
 
 ----
 
@@ -18,7 +18,7 @@ a)
 sorting package:
 In here, you will find a MergeSort class and MergeSortWorker class. The MergeSort class contains a method that will
 sort a randomly generated list with a specified size and thread count. Then, the MergeSort class will divide up the
-generated list into rougly equal partitions and give each partition to a MergeSortWorker to sort using the Java built-in
+generated list into roughly equal partitions and give each partition to a MergeSortWorker to sort using the Java built-in
 sort algorithm. Finally, the MergeSort class will perform the merge step on all of the sorted partitions. To check the
 validity of the sorted list (rather than printing out the list), a sort check is made on the list before printing output.
 

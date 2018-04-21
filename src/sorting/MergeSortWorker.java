@@ -15,7 +15,7 @@ public class MergeSortWorker extends Thread{
         Collections.sort(list);
     }
 
-    public List<Integer> result() {
+    List<Integer> result() {
         return list;
     }
 }
