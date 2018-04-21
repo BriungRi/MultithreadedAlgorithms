@@ -11,10 +11,6 @@ public class FindMinimumWorker extends Thread {
         this.list = list; // this may need to be a copy bc shared memory
     }
 
-    public static void main(String[] args) {
-
-    }
-
     @Override
     public void run() {
         minVal(list);
@@ -24,9 +20,10 @@ public class FindMinimumWorker extends Thread {
         return minVal;
     }
 
-    private int minVal(List<Integer> list) {
+    private int minVal(List<Integer> neck) {
         int start = 0;
         int min = Integer.MAX_VALUE;
+        
         for (int i = start; i < list.size(); i++) {
             int val = list.get(i);
             if (val < min) {

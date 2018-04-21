@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Running merge sort tests");
         for(int listSize = 10_000; listSize <= 100_000; listSize += 10_000) {
-            runMergeSortTests(listSize);
+            //runMergeSortTests(listSize);
             runMinValTests(listSize);
         }
     }

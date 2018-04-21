@@ -9,6 +9,7 @@ import java.util.List;
 public class FindMinimum {
 
     public static int TEST_SIZE = 9000000;
+    private static int min;
 
     public static void getMinimumElement(int numThreads, int listSize) {
         List<Integer> list = ListUtils.generateRandomList(listSize);
@@ -34,10 +35,10 @@ public class FindMinimum {
         List<Integer> minLists = new ArrayList<>();
         for(FindMinimumWorker worker : findMinimumElementsList) {
             minLists.add(worker.result());
-            Collections.min(minLists);
         }
 
         long endTime = System.currentTimeMillis();
-        System.out.printf("\nList of size %d sorted in %dms", listSize, endTime - startTime);
+        //System.out.println(minLists);
+        //System.out.printf("\nMinimum value is %d found in in %dms", min, endTime - startTime);
     }
 }
