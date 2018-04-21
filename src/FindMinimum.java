@@ -48,9 +48,7 @@ public class FindMinimum {
         List<List<Integer>> minLists = new ArrayList<>();
         for(FindMinimumWorker worker : findMinimumElementsList) {
             minLists.add(worker.result());
-            for(int i = 0; i < minLists.size(); i++) {
 
-            }
         }
 
         long endTime = System.currentTimeMillis();

@@ -12,12 +12,8 @@ public class FindMinimumWorker extends Thread {
 
 
     @Override
-    public void run() {
-        Collections.sort(list);
-    }
-
-    public List<Integer> result() {
-        return list;
+    public int result() {
+        return list.get(0);
     }
 
     public static int minVal(List<Integer> list) {
