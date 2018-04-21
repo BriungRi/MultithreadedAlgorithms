@@ -4,7 +4,8 @@ import java.util.Collections;
 import java.util.List;
 
 public class FindMinimumWorker extends Thread {
-    private final List<Integer> list;
+    private static  List<Integer> list;
+    public static int minVal = 0;
 
     public FindMinimumWorker(List<Integer> list) {
         this.list = list; // this may need to be a copy bc shared memory
@@ -16,9 +17,8 @@ public class FindMinimumWorker extends Thread {
         minVal(list);
     }
 
-    @Override
-    public List<Integer> result() {
-        return list;
+    public int result() {
+        return minVal;
     }
 
     public static int minVal(List<Integer> list) {
@@ -29,6 +29,7 @@ public class FindMinimumWorker extends Thread {
             int val = list.get(i);
             if (val < min) {
                 min = val;
+                minVal = min;
             }
             return min;
         }
