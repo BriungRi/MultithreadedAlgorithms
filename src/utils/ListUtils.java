@@ -63,9 +63,9 @@ public class ListUtils {
         return true;
     }
 
-    public static boolean isMinVal(List<Integer> list) {
-        for(int i = 0; i < list.size() - 1; i++) {
-            if(list.get(i) > Collections.min(list))
+    public static boolean isMinVal(List<Integer> list, int minValue) {
+        for(Integer num : list) {
+            if(num < minValue)
                 return false;
         }
         return true;

@@ -1,27 +1,24 @@
-import sorting.FindMinimumWorker;
-import sorting.MergeSortWorker;
+package sorting;
+
 import utils.ListUtils;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class FindMinimum {
-
-    public static int TEST_SIZE = 9000000;
-
     public static void getMinimumElement(int numThreads, int listSize) {
         List<Integer> list = ListUtils.generateRandomList(listSize);
-        List<List<Integer>> partitions = ListUtils.partitionList(list, numThreads);
-        List<FindMinimumWorker> findMinimumElementsList = new ArrayList<>();
+
         long startTime = System.currentTimeMillis();
+        List<List<Integer>> partitions = ListUtils.partitionList(list, numThreads);
+        List<FindMinimumWorker> workers = new ArrayList<>();
         for (List<Integer> partition : partitions) {
             FindMinimumWorker findMinimumWorker = new FindMinimumWorker(partition);
-            findMinimumElementsList.add(findMinimumWorker);
+            workers.add(findMinimumWorker);
             findMinimumWorker.start();
         }
 
-        for(FindMinimumWorker findMinimumWorker : findMinimumElementsList) {
+        for(FindMinimumWorker findMinimumWorker : workers) {
             try {
                 findMinimumWorker.join();
             }
@@ -30,14 +27,14 @@ public class FindMinimum {
             }
         }
 
-
-        List<Integer> minLists = new ArrayList<>();
-        for(FindMinimumWorker worker : findMinimumElementsList) {
-            minLists.add(worker.result());
-            Collections.min(minLists);
+        int minValue = Integer.MAX_VALUE;
+        for(FindMinimumWorker worker : workers) {
+            if(worker.result() < minValue)
+                minValue = worker.result();
         }
-
         long endTime = System.currentTimeMillis();
-        System.out.printf("\nList of size %d sorted in %dms", listSize, endTime - startTime);
+
+        if(ListUtils.isMinVal(list, minValue))
+            System.out.printf("\nMin found in list of size %d in %dms with %d thread(s)", listSize, endTime - startTime, numThreads);
     }
 }

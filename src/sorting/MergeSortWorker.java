@@ -6,7 +6,7 @@ import java.util.List;
 public class MergeSortWorker extends Thread{
     private final List<Integer> list;
 
-    public MergeSortWorker(List<Integer> list) {
+    MergeSortWorker(List<Integer> list) {
         this.list = list; // this may need to be a copy bc shared memory
     }
 
