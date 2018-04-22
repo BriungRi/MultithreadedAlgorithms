@@ -1,13 +1,10 @@
-import sorting.FindMinimum;
 import sorting.MergeSort;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Running merge sort tests");
         for(int listSize = 10_000; listSize <= 100_000; listSize += 10_000) {
-            runMergeSortTests(listSize);
-        }
-        for(int listSize = 1_000_000; listSize <= 10_000_000; listSize += 1_000_000) {
+            //runMergeSortTests(listSize);
             runMinValTests(listSize);
         }
     }

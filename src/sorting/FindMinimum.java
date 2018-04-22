@@ -1,24 +1,28 @@
-package sorting;
-
+import sorting.FindMinimumWorker;
+import sorting.MergeSortWorker;
 import utils.ListUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class FindMinimum {
+
+    public static int TEST_SIZE = 9000000;
+    private static int min;
+
     public static void getMinimumElement(int numThreads, int listSize) {
         List<Integer> list = ListUtils.generateRandomList(listSize);
-
-        long startTime = System.currentTimeMillis();
         List<List<Integer>> partitions = ListUtils.partitionList(list, numThreads);
-        List<FindMinimumWorker> workers = new ArrayList<>();
+        List<FindMinimumWorker> findMinimumElementsList = new ArrayList<>();
+        long startTime = System.currentTimeMillis();
         for (List<Integer> partition : partitions) {
             FindMinimumWorker findMinimumWorker = new FindMinimumWorker(partition);
-            workers.add(findMinimumWorker);
+            findMinimumElementsList.add(findMinimumWorker);
             findMinimumWorker.start();
         }
 
-        for(FindMinimumWorker findMinimumWorker : workers) {
+        for(FindMinimumWorker findMinimumWorker : findMinimumElementsList) {
             try {
                 findMinimumWorker.join();
             }
@@ -27,14 +31,14 @@ public class FindMinimum {
             }
         }
 
-        int minValue = Integer.MAX_VALUE;
-        for(FindMinimumWorker worker : workers) {
-            if(worker.result() < minValue)
-                minValue = worker.result();
-        }
-        long endTime = System.currentTimeMillis();
 
-        if(ListUtils.isMinVal(list, minValue))
-            System.out.printf("\nMin found in list of size %d in %dms with %d thread(s)", listSize, endTime - startTime, numThreads);
+        List<Integer> minLists = new ArrayList<>();
+        for(FindMinimumWorker worker : findMinimumElementsList) {
+            minLists.add(worker.result());
+        }
+
+        long endTime = System.currentTimeMillis();
+        //System.out.println(minLists);
+        //System.out.printf("\nMinimum value is %d found in in %dms", min, endTime - startTime);
     }
 }
