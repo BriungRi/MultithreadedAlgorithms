@@ -19,5 +19,4 @@ public class FindMinimumWorker extends Thread {
     int result() {
         return minVal;
     }
-
 }

@@ -42,6 +42,72 @@ List of size 20000 sorted in 13ms with 10 thread(s)
 ...
 ```
 
+```
+Min found in list of size 2000000 in 67ms with 1 thread(s)-2147475616
+-2147477641
+
+Min found in list of size 2000000 in 33ms with 2 thread(s)-2147478321
+-2147478321
+-2147479113
+
+Min found in list of size 2000000 in 29ms with 3 thread(s)-2147481107
+-2147481107
+-2147481107
+-2147481243
+
+Min found in list of size 2000000 in 28ms with 4 thread(s)-2147481666
+-2147481666
+-2147481666
+-2147481666
+-2147481666
+
+Min found in list of size 2000000 in 29ms with 5 thread(s)-2147476033
+-2147479503
+-2147479503
+-2147479503
+-2147483224
+-2147483224
+
+Min found in list of size 2000000 in 37ms with 6 thread(s)-2147478673
+-2147480476
+-2147483605
+-2147483605
+-2147483605
+-2147483605
+-2147483605
+
+Min found in list of size 2000000 in 52ms with 7 thread(s)-2147474991
+-2147482532
+-2147482532
+-2147482532
+-2147482532
+-2147482532
+-2147482532
+-2147482532
+
+Min found in list of size 2000000 in 649ms with 8 thread(s)-2147457735
+-2147482398
+-2147482398
+-2147482398
+-2147482398
+-2147482398
+-2147482398
+-2147482398
+-2147482398
+
+Min found in list of size 2000000 in 33ms with 9 thread(s)-2147426011
+-2147482915
+-2147482915
+-2147482915
+-2147482915
+-2147482915
+-2147482915
+-2147482915
+-2147482915
+-2147482915
+...
+```
+
 data structures:
 Java's Thread class is used to do work asynchronously. 
 All the threads are then joined to wait for computation to finish. 

@@ -31,6 +31,7 @@ public class FindMinimum {
         for(FindMinimumWorker worker : workers) {
             if(worker.result() < minValue)
                 minValue = worker.result();
+            System.out.println(minValue);
         }
         long endTime = System.currentTimeMillis();
 
