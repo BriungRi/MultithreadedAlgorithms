@@ -27,11 +27,36 @@ In here contains a single ListUtils class. This class contains static methods to
 merge sorted lists, and check if a list is sorted. Some of these methods are unit tested in the test directory under the
 same package.
 
+output:
+```
+List of size 20000 sorted in 46ms with 1 thread(s)
+List of size 20000 sorted in 49ms with 2 thread(s)
+List of size 20000 sorted in 29ms with 3 thread(s)
+List of size 20000 sorted in 28ms with 4 thread(s)
+List of size 20000 sorted in 35ms with 5 thread(s)
+List of size 20000 sorted in 28ms with 6 thread(s)
+List of size 20000 sorted in 16ms with 7 thread(s)
+List of size 20000 sorted in 30ms with 8 thread(s)
+List of size 20000 sorted in 32ms with 9 thread(s)
+List of size 20000 sorted in 13ms with 10 thread(s)
+...
+```
+
+data structures:
+Java's Thread class is used to do work asynchronously. 
+All the threads are then joined to wait for computation to finish. 
+Once the threads are done running, each algorithm extracts the result
+for the merge step of the divide and conquer algorithm
+
 d) 
 By running the command:
 `java Main`
-you will see output to view the performance of the algorithm against variable list sizes and thread counts
+you will see output to view the performance of the algorithm against variable list 
+sizes and thread counts
 
 e)
-Brian: In this version, I mainly worked on the multithreaded MergeSort algorithm. I also wrote up some tests and documentation.
-Arbaz: In this version, I mainly worked on the multithreaded sorting.FindMinimum algorithm. I also wrote up some tests and documentation.
+Brian: In this version, I mainly worked on the multithreaded MergeSort algorithm. 
+I also wrote up some tests and documentation.
+
+Arbaz: In this version, I mainly worked on the multithreaded sorting.
+FindMinimum algorithm. I also wrote up some tests and documentation.
