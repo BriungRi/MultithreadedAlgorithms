@@ -3,10 +3,28 @@ package sorting;
 import utils.ListUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class MergeSort {
-    public static void mergeSort(int numThreads, int listSize) {
+    /**
+     * A control trial of merge sort on a single thread
+     * @param listSize The size of list to run the trial on
+     */
+    public static void mergeSortSingleThread(int listSize) {
+        List<Integer> randomList = ListUtils.generateRandomList(listSize);
+        long startTime = System.currentTimeMillis();
+        Collections.sort(randomList);
+        long endTime = System.currentTimeMillis();
+        System.out.printf("\nSingle threaded mergeSort run time: %dms", endTime - startTime);
+    }
+
+    /**
+     * A multithreaded trial of merge sort
+     * @param numThreads The number of threads to distribute divide and conquer work on
+     * @param listSize The size of the list to sort
+     */
+    public static void mergeSortMultiThread(int numThreads, int listSize) {
         List<Integer> randomList = ListUtils.generateRandomList(listSize);
 
         long startTime = System.currentTimeMillis();
@@ -32,6 +50,7 @@ public class MergeSort {
             sortedLists.add(worker.result());
         }
         List<Integer> sortedList = ListUtils.mergeSortedLists(sortedLists);
+
         long endTime = System.currentTimeMillis();
 
         if(ListUtils.isSorted(sortedList)) {

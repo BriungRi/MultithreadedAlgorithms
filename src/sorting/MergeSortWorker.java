@@ -3,11 +3,11 @@ package sorting;
 import java.util.Collections;
 import java.util.List;
 
-public class MergeSortWorker extends Thread{
+public class MergeSortWorker extends Thread {
     private final List<Integer> list;
 
     MergeSortWorker(List<Integer> list) {
-        this.list = list; // this may need to be a copy bc shared memory
+        this.list = list;
     }
 
     @Override

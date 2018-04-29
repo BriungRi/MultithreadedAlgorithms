@@ -1,11 +1,10 @@
 package sorting;
 
-import java.util.Collections;
 import java.util.List;
 
 public class FindMinimumWorker extends Thread {
     private final List<Integer> list;
-    private int minVal = Integer.MAX_VALUE;
+    private Integer minVal = null;
 
     FindMinimumWorker(List<Integer> list) {
         this.list = list;
@@ -13,7 +12,11 @@ public class FindMinimumWorker extends Thread {
 
     @Override
     public void run() {
-        minVal = Collections.min(list);
+        for (Integer value : list) {
+            if (minVal == null || value < minVal) {
+                minVal = value;
+            }
+        }
     }
 
     int result() {
